@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Magical Mystery Theater</title>
+
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        button {
+            max-width: 500px;
+            padding: 1rem 3rem;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>Magical Mystery Theater</h1>
+    <button onclick="buyTicket()" type="button">Purchase Ticket</button>
+
+    <script>
+
+        const GENERAL_ADMISSION_TICKET_COST = 20;
+        const CHILD_AND_SENIOR_TICKET_COST = 10;
+        const MATINEE_DISCOUNT = 3;
+
+        function buyTicket() {
+
+            const age = prompt('What is your age?');
+            let cost = getBaseTicketCost(age);
+
+            const isMatinee = prompt('Are you attending a matinee show?');
+            let discountedCost = applyDiscount(isMatinee, cost);
+
+            alert(`Your ticket will cost $${discountedCost}.`);
+        }
+
+        function getBaseTicketCost(age) {
+            if (age <= 12 || age >= 65) {
+                 return CHILD_AND_SENIOR_TICKET_COST;
+            }
+            return GENERAL_ADMISSION_TICKET_COST;
+        }
+
+        function applyDiscount(isMatinee, cost) {
+            let lowerCaseisMatinee = isMatinee.toLowerCase();
+            if ((lowerCaseisMatinee === 'yes') || (lowerCaseisMatinee === 'y')) {
+                ticketCost = cost - MATINEE_DISCOUNT;
+                return ticketCost;
+                // alert(`Your ticket will cost $${cost}.`);
+            } else {
+                return cost;
+                // alert(`Your ticket will cost $${cost}.`);
+            }
+        }
+
+    </script>
+</body>
+</html>
