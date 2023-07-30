@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Wild Waves Aquatic Park</title>
+
+    <style>
+        h1 {
+            width: 100%;
+            text-align: center;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wild Waves Aquatic Park</h1>
+    <div>
+        <button type="button" onclick="buyTicket()">Purchase Attraction</button>
+    </div>
+
+    <script>
+
+        const WAVE_POOL_MIN_HEIGHT = 42; // in inches
+    	const WATERSLIDE_MIN_HEIGHT = 48; // in inches
+    	const LAZY_RIVER_MIN_HEIGHT = 36; // in inches
+
+        const slideOptions = ['wave', 'water', 'river'];
+
+        function buyTicket() {
+            const attractionType = prompt('Which attraction do you want to visit: type "wave" for wave pool, "water" for waterslide, or "river" for lazy river?').toLowerCase();
+            if (!slideOptions.includes(attractionType)) {
+                alert('You did not select an available slide.');
+                return;
+            };
+
+            const userHeight = prompt('What is your height in inches?');
+            const withAdult = prompt('Are you with an adult? (yes or no)').toLowerCase();
+
+            let isAllowed = checkHeight(attractionType, userHeight, withAdult);
+            let adultCheck = checkWithAdult(userHeight, withAdult);
+
+            if (isAllowed || adultCheck) {
+                alert('You can go on the ride!');
+            } else {
+                alert('You cannot go on the ride.');
+            }
+        };
+
+        function checkHeight(attraction, height) {
+
+            //    // Using if function
+            // if (attraction === 'wave' && height > 42) {
+            //     return true;
+            // } else if (attraction == 'water' && height > 48) {
+            //     return true;
+            // } else if (attraction == 'river' && height > 36) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+
+            //    // using switch function
+            switch(attraction) {
+                case "wave": 
+                    if (height > 42) {
+                        return true;
+                        console.log('can go on the wave ride')
+                    } else {
+                        return false;
+                        console.log('cannot go on the river ride')
+                    }
+                    break;
+                case "water": 
+                    if (height > 48) {
+                        return true;
+                        console.log('can go on the water ride')
+                    } else {
+                        return false;
+                        console.log('cannot go on the river ride')
+                    }
+                    break;
+                case "river": 
+                    if (height > 36) {
+                        console.log('can go on the river ride')
+                        return true;
+                    } else {
+                        return false;
+                        console.log('cannot go on the river ride')
+                    }
+                    break;
+                default:
+                    console.log('Did not select slide option.');
+                    console.log(attraction, height);
+            }
+        };
+
+        function checkWithAdult(height, withAdult) {
+            if (height > 42 && withAdult == 'yes') {
+                return true;
+            } else {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
