@@ -17,7 +17,7 @@ function startGame() {
 
     } else if (guess > 100 || guess < 1) {
         alert('Please enter an integer in the 1 - 100 range.');
-        
+
     } else if (guess == num) {
         alert(`You got it! The number was ${num}.
         
@@ -32,4 +32,5 @@ function startGame() {
         }
     }
   };
+  
   
