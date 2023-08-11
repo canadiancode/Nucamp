@@ -31,14 +31,26 @@ class Dragon extends Monster {
         this.element = element;
     }
 
-    fly() {
+    shoot() {
         console.log(`The ${this.color} ${this.type} can shoot ${this.element}.`)
     }
 }
 
 const dragonTwo = new Dragon('dragon', 'red', 'fire');
-dragonTwo.fly();
+dragonTwo.shoot('red', 'dragon', 'fire');
 
+class Warewolf extends Monster {
+    constructor(type, color) {
+        super(type, color)
+    }
+
+    howl() {
+        console.log(`The ${this.color} ${this.type} howls.`)
+    }
+}
+
+const warewolfOne = new Warewolf('warewolf', 'grey');
+warewolfOne.howl();
 
 </script>
 </body>
