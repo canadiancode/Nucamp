@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>JS Object Practice</title></head>
+<body>
+<script>
+
+//Excercise to try on your own.
+//Example of a throw
+function tryThrow(user) {
+	try {
+		if (!user.name) throw new Error(`Incomplete data -- missing name`);
+		if (!user.house) throw new Error(`Incomplete data -- missing house`);
+	} catch(err) {
+		console.log(`Error in JSON data: ${err.message}`);
+	} finally {
+		console.log(`Data handling complete.`)
+	}
+}
+
+//here is some sample data. Pass each one into the function to see what happens!
+let sampleData1 = {name: "Ron Weasley", house: "Gryffindor"};
+let sampleData2 = {name: "" , house: "Slytherin"};
+
+</script>
+</body>
+</html>
