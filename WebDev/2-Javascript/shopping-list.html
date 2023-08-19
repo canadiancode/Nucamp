@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list</title>
+
+    <style>
+        li {
+            list-style: none;
+            border: 1px solid black;
+            width: fit-content;
+            min-width: 100px;
+            padding: 5px;
+            margin: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Shopping List</h1>
+    <form id="myForm">
+        <label for="item">Add an item:</label>
+        <input id="item" type="text" name="item">
+        <button>Add</button>
+        <button onclick="window.print()">Print</button>
+    </form>
+    <ul id="shoppingList">
+        <!-- list items will go into this ul via DOM manipulation -->
+    </ul>
+
+<script>
+
+let list = [];
+
+const button = document.querySelector('button');
+button.addEventListener('click', addItem);
+
+function addItem(event) {
+    try {
+        event.preventDefault();
+    let input = document.querySelector('#item').value;
+    if (input === '') {
+        alert('Please fill out the input to add it to the list.')
+    }
+    else if (list.includes(input.toLowerCase())) {
+        alert(`You already have ${input} within your list!`);
+    } else {
+        list.push(input);
+    }
+    
+    updateList();
+    
+    document.querySelector('#myForm').reset();
+    } catch (error) {
+        alert(`Could not add ${input} to the list.`);
+        console.log(error.message);
+    }
+}
+
+function updateList() {
+    try {
+        const shoppingList = document.querySelector('#shoppingList');
+        shoppingList.innerHTML = ''; // be careful as this can be dangerous if we're deleting sensitive data
+
+        list.sort();
+
+        for (let i = 0; i < list.length; i++) {
+            const newElement = document.createElement('li');
+            newElement.appendChild(document.createTextNode(list[i]));
+            shoppingList.appendChild(newElement);
+            newElement.addEventListener('click', removeItem);
+        }
+    } catch (error) {
+        alert('Could not update list.')
+        console.log(error.message);
+    }
+}
+
+function removeItem(event) {
+    try {
+        event.target.remove();
+    }
+    catch (error) {
+        alert('Could not remove selected item.')
+        console.log(error.message);
+    }
+}
+
+
+</script>
+
+    
+</body>
+</html>
