@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Image Project</title>
+    <style>
+
+        body {
+            background-image: url('https://as2.ftcdn.net/v2/jpg/01/78/74/61/1000_F_178746167_BhwEnzpdDkoMhErieuGqTniCJncKTUmU.jpg');
+        }
+
+        .btn-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+        button {
+            max-width: 200px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+        .img-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            border: solid 2px black;
+            margin: 0 auto;
+            box-shadow: inset 0px 1px 5px 4px black;
+            background: white;
+        }
+        img {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="btn-container">
+        <button onclick="fetchImg()">Fetch Image</button>
+    </div>
+
+    <div class="img-container">
+        <img src="" alt="">
+    </div>
+
+    <script>
+
+        async function fetchImg() {
+            try {
+                let response = await fetch('https://api.thecatapi.com/v1/images/search');
+            
+                if (!response.ok) {
+                    console.log(response.status);
+                }
+
+                const data = await response.json();
+                let url = data[0].url;
+                console.log(url);
+
+                document.querySelector('img').src = url;
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+    </script>
+</body>
+</html>
