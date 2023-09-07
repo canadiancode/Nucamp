@@ -29,16 +29,16 @@
     </header>
 
     <!-- The main content section -->
-    <section>
+    <section class="main-content">
         
         <!-- The image and the score -->
         <div class="left">
             <!-- image container -->
             <div class="img-container">
                 <div class="question-container">
-                    <p><span class="current-question">4</span>/10</p>
+                    <p><span class="current-question">0</span>/10</p>
                 </div>
-                <img class="img" src="https://images.dog.ceo//breeds//terrier-bedlington//n02093647_1263.jpg" alt="image of a dog">
+                <img class="img" src="https://media.tenor.com/hMoF1FtqWFYAAAAC/dog-running-dog.gif" alt="image of a dog">
             </div>
 
             <!-- score container -->
@@ -50,14 +50,25 @@
         <!-- The button selection -->
         <div class="right">
             <div class="btn-container">
-                <button id="btn-1" type="button" class="btn btn-primary btn-lg">Primary</button>
-                <button id="btn-2" type="button" class="btn btn-primary btn-lg">Primary</button>
-                <button id="btn-3" type="button" class="btn btn-primary btn-lg">Primary</button>
-                <button id="btn-4" type="button" class="btn btn-primary btn-lg">Primary</button>
+                <button data-num="0" id="btn-1" type="button" class="btn btn-primary btn-lg">Primary</button>
+                <button data-num="1" id="btn-2" type="button" class="btn btn-primary btn-lg">Primary</button>
+                <button data-num="2" id="btn-3" type="button" class="btn btn-primary btn-lg">Primary</button>
+                <button data-num="3" id="btn-4" type="button" class="btn btn-primary btn-lg">Primary</button>
             </div>
 
         </div>
 
+    </section>
+
+    <section class="end-game-page">
+        <h3 class="ending-heading">Congratulations</h3>
+        <!-- score container -->
+        <div class="final-score-container">
+            <h3 class="final-score-card">Score: <span class="end-score">0</span> / 10</h3>
+        </div>
+        <div class="play-again-container"> 
+            <button id="play-again-btn" class="btn btn-primary btn-lg play-again-btn">Play again</button>
+        </div>
     </section>
 
     

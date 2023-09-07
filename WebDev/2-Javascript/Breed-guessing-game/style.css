@@ -73,6 +73,8 @@ body > section > div {
     width: 100%;
     overflow: hidden;
     position: relative;
+    border-radius: 10px;
+    box-sizing: 0px 0px 6px 0px black;
 }
 .left .img-container .question-container {
     position: absolute;
@@ -91,15 +93,19 @@ body > section > div {
     object-fit: cover;
     min-width: 100%;
     min-height: 100%;
+    max-width: 350px;
+    max-height: 350px;
 }
-.score-container {
+.score-container,
+.final-score-container {
     margin-top: 1.5rem;
     min-width: 220px;
     background-color: var(--dark-blue);
     text-align: center;
     box-shadow: 1px 1px 1px 1px black;
 }
-.score-container h3 {
+.score-container h3,
+.final-score-container h3 {
     color: white;
     margin: 0.1rem;
     padding: 0.1rem;
@@ -118,7 +124,8 @@ body > section > div {
     gap: 1rem;
 }
 
-.right .btn-container button {
+.right .btn-container button,
+.play-again-btn {
     background: var(--button-defaut);
     color: black;
     font-weight: bold;
@@ -126,9 +133,41 @@ body > section > div {
     min-width: 180px;
 }
 
-.right .btn-container button:hover {
+.right .btn-container button:hover,
+.play-again-btn:hover {
     background: var(--button-hover);
     color: white;
 }
 
 
+/* End game page */
+.end-game-page {
+    display: none;
+    flex-direction: column;
+}
+.ending-heading {
+    margin: 0 auto;
+    text-align: center;
+    font-family: var(--accent-font-family);
+    font-size: 7vmax;
+    transform: rotate(-7deg);
+    margin-bottom: 4rem;
+    text-shadow: 0px 0px 14px white;
+    color: white;
+    text-shadow: 0px 1px 15px black;
+}
+.play-again-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.play-again-btn {
+    margin-top: 4rem;
+    color: black !important;
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+}
+.play-again-btn:hover {
+    background: var(--button-hover);
+    color: white;
+}
