@@ -1,27 +1,24 @@
-import logo from './logo.svg';
+// import components
+import Header from './components/Header.js';
+import HeartsList from './components/HeartsList.js';
+
+// import CSS
 import './App.css';
 
-function App() {
+// Javascript variables
+const headerText = 'I ❤️ React';
+
+// stateless component that gets invoked within the index.js file
+function App(props) {
+
+  // invoke the Header component pasing in the msg prop
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // Fragment <> </>: like a div but less data for the virtual DOM
+    <>
+      <Header msg={headerText}/>
+      <HeartsList />
+    </>
+  ) 
 }
 
 export default App;
-
-console.log('test');
