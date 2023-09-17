@@ -6,6 +6,7 @@ import Footer from './components/Footer.js';
 import CampsiteDetailPage from './pages/CampsiteDetailPage';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage.js';
+import AboutPage from './pages/AboutPage';
 
 // For React Router
 import { Route, Routes } from 'react-router-dom';
@@ -19,6 +20,7 @@ function App() {
         <Route path='contact' element={<ContactPage/>} />
         <Route path='directory' element={<CampsitesDirectoryPage/>} />
         <Route path='directory/:campsiteId' element={<CampsiteDetailPage/>} />
+        <Route path='about' element={<AboutPage/>} />
       </Routes>
       <Footer />
     </div>
