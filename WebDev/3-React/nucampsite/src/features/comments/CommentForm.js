@@ -1,5 +1,10 @@
+// state management & redux
 import { useState } from 'react';
-import { Button, Modal, ModalHeader, FormGroup, Label } from 'reactstrap';
+import { useDispatch } from 'react-redux';
+import { addComment } from './commentsSlice';
+
+// Form and Reactstrap
+import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label } from 'reactstrap';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { validateCommentForm } from '../../utils/validateCommentForm';
 
@@ -7,16 +12,18 @@ const CommentForm = ({ campsiteId }) => {
 
     const [modalOpen, setModalOpen] = useState(false);
 
+    const dispatch = useDispatch();
+
     const handleSubmit = (values) => {
         const comment = {
             campsiteId: parseInt(campsiteId),
             rating: values.rating,
             author: values.author,
-            text: values.commentText
-        }
-
+            text: values.commentText,
+            date: new Date(Date.now()).toISOString()
+        };
+        dispatch(addComment(comment));
         setModalOpen(false);
-
     }
 
     return (
@@ -28,60 +35,61 @@ const CommentForm = ({ campsiteId }) => {
                 <ModalHeader toggle={() => setModalOpen(false)}>
                     Add Comment
                 </ModalHeader>
-                <Formik 
-                    initialValues={{
-                        rating: undefined,
-                        author: '',
-                        commentText: ''
-                    }}
-                    onSubmit={handleSubmit}
-                    validate={validateCommentForm}
-                >
-                    <Form className='m-3'>
-                        <FormGroup>
-                            <Label md='1' htmlFor='rating'>Rating</Label>
-                        </FormGroup>
-                        <Field
-                            name='rating'
-                            as='select'
-                            className='form-control'
-                            md='10'
-                        >
-                            <option>Select...</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </Field>
-                        <ErrorMessage name='rating'>
-                            {(msg) => <p className='text-danger'>{msg}</p>}
-                        </ErrorMessage>
-                        <FormGroup>
-                            <Label md='10' htmlFor='author'>Your Name:</Label>
+                <ModalBody>
+                    <Formik 
+                        initialValues={{
+                            rating: undefined,
+                            author: '',
+                            commentText: ''
+                        }}
+                        onSubmit={handleSubmit}
+                        validate={validateCommentForm}
+                    >
+                        <Form className='m-3'>
+                            <FormGroup>
+                                <Label htmlFor='rating'>Rating</Label>
+                            </FormGroup>
                             <Field
-                                name='author'
-                                placeholder='Your Name'
+                                name='rating'
+                                as='select'
                                 className='form-control'
-                            />
-                            <ErrorMessage name='author'>
+                            >
+                                <option>Select...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </Field>
+                            <ErrorMessage name='rating'>
                                 {(msg) => <p className='text-danger'>{msg}</p>}
                             </ErrorMessage>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label htmlFor='commentText'>Comment</Label>
-                            <Field
-                                name='commentText'
-                                as='textarea'
-                                rows='12'
-                                className='form-control'
-                            />
-                        </FormGroup>
-                        <Button type='submit' color='primary'>
-                            Submit
-                        </Button>
-                    </Form>
-                </Formik>
+                            <FormGroup>
+                                <Label md='10' htmlFor='author'>Your Name:</Label>
+                                <Field
+                                    name='author'
+                                    placeholder='Your Name'
+                                    className='form-control'
+                                />
+                                <ErrorMessage name='author'>
+                                    {(msg) => <p className='text-danger'>{msg}</p>}
+                                </ErrorMessage>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor='commentText'>Comment</Label>
+                                <Field
+                                    name='commentText'
+                                    as='textarea'
+                                    rows='12'
+                                    className='form-control'
+                                />
+                            </FormGroup>
+                            <Button type='submit' color='primary'>
+                                Submit
+                            </Button>
+                        </Form>
+                    </Formik>
+                </ModalBody>
             </Modal>
         </>
     );    
