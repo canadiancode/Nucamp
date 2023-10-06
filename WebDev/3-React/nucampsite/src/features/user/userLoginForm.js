@@ -21,6 +21,18 @@ const UserLoginForm = () => {
 
     const dispatch = useDispatch();
 
+    // What was used during the
+    // const handleLogin = (values) => {
+    //     const currentUser = {
+    //         id: Date.now(),
+    //         avatar: defaultAvatar,
+    //         username: values.username,
+    //         password: values.password,
+    //     }
+    //     dispatch(setCurrentUser(currentUser));
+    //     setLoginModalOpen(false);
+    // }
+
     function handleLogin(values) {
         const currentUser = {
             id: Date.now(),
@@ -86,7 +98,6 @@ const UserLoginForm = () => {
             </Modal>
         </>
     )
-
 }
 
 export default UserLoginForm;
