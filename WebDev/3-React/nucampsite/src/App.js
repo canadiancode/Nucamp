@@ -10,9 +10,10 @@ import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage.js';
 import AboutPage from './pages/AboutPage';
 import { fetchCampsites } from './features/campsites/campsitesSlice';
-
-// For React Router
+import { fetchPartners } from './features/partners/partnersSlice';
 import { Route, Routes } from 'react-router-dom';
+import { fetchPromotions } from './features/promotions/promotionsSlice';
+import { fetchComments } from './features/comments/commentsSlice';
 
 function App() {
 
@@ -20,6 +21,9 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCampsites());
+    dispatch(fetchPartners());
+    dispatch(fetchPromotions());
+    dispatch(fetchComments());
   }, [dispatch]);
 
   return (

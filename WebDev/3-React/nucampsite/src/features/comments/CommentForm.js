@@ -1,7 +1,7 @@
 // state management & redux
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addComment } from './commentsSlice';
+import { postComment } from './commentsSlice';
 
 // Form and Reactstrap
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label } from 'reactstrap';
@@ -22,7 +22,7 @@ const CommentForm = ({ campsiteId }) => {
             text: values.commentText,
             date: new Date(Date.now()).toISOString()
         };
-        dispatch(addComment(comment));
+        dispatch(postComment(comment));
         setModalOpen(false);
     }
 
