@@ -31,12 +31,12 @@ export const postComment = createAsyncThunk(
 
         if (!response.ok) {
             return Promise.reject(response.status);
-        }
+        };
 
         const data = await response.json();
         dispatch(addComment(data));
     }
-)
+);
 
 
 const initialState = {

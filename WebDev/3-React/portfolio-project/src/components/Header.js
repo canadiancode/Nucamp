@@ -1,10 +1,20 @@
 import React from 'react';
-import { Navbar, Nav, NavbarBrand, NavItem, NavLink, NavbarToggler } from 'reactstrap';
+import { Navbar, Nav, NavbarBrand, NavItem, NavLink } from 'reactstrap';
 
 const headerImgStyle = {
     width: '50px',
     height: '50px',
     borderRadius: '2rem',
+    userSelect: 'none',
+}
+const headerTxtStyle = {
+    margin: '0',
+    marginTop: '11px',
+    marginLeft: '3.5rem',
+    fontFamily: 'Archivo Black, sans-serif',
+    color: 'white',
+    cursor: 'default',
+    userSelect: 'none',
 }
 const svgStyle = {
     height: '50px',
@@ -17,6 +27,7 @@ const Header = () => {
         <Navbar className='bg-gradient bg-opacity-75' color="dark" expand="md">
             <NavbarBrand className='ms-start'>
                 <img style={headerImgStyle} src='https://avatars.githubusercontent.com/u/45132144?v=4' alt="Kevin Heidema" className="float-start header-image" />
+                <h3 style={headerTxtStyle} >CanadianCode</h3>
             </NavbarBrand>
             <Nav className="ml-auto flex-row" navbar>
                 <NavItem className="d-inline d-md-inline">

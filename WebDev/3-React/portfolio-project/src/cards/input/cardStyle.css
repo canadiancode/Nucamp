@@ -1,0 +1,74 @@
+/* Card container styling */
+.card-container {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    gap: 20px;
+    min-height: 400px;
+}
+@media screen and (max-width: 500px) {
+    .card-container {
+        flex-direction: column;
+    }
+}
+
+/* Card styling */
+.card {
+    max-width: 400px;
+    width: 100%;
+}
+.search-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.input-group-text {
+    border: none;
+    background-color: transparent;
+}
+.search-container img {
+    transform: scaleX(-1);
+}
+.search-container button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255, 0.5);
+    border: none;
+    color: black;
+}
+.dropdown-toggle::after {
+    align-self: center;
+}
+
+/* Dropdown menu for the asset selection input */
+.dropdown-menu {
+    width: 86%;
+    max-height: 330px;
+    overflow: auto;
+}
+.dropdown-menu button img {
+    max-height: 25px;
+    margin-right: 6px;
+    border-radius: 50%;
+}
+.prevButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 10px;
+    gap: 10px;
+}
+.prevButtonContainer p {
+    width: 86%;
+    align-self: flex-end;
+}
+.prevButtonContainer button {
+    width: 86%;
+    align-self: end;
+    display: flex;
+    gap: 10px;
+}
+.prevButtonContainer button img {
+    max-height: 25px;
+}
