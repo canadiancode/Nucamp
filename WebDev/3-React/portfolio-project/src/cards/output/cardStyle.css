@@ -1,0 +1,73 @@
+/* Card container styling */
+.card-container {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    gap: 20px;
+    min-height: 400px;
+}
+@media screen and (max-width: 500px) {
+    .card-container {
+        flex-direction: column;
+    }
+}
+
+/* Card styling */
+.card {
+    max-width: 400px;
+    width: 100%;
+}
+/* Content */
+.custom-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.custom-text-container {
+    background-color: rgb(15, 15, 15, 0.5);
+    display: flex; 
+    gap: 10px;
+    align-items: center;
+    padding: 5px;
+    border-radius: .375rem;
+    justify-content: space-between;
+}
+.custom-text-container h3,
+.custom-text-container p {
+    align-self: center;
+    margin: 0;
+    color: white;
+}
+.text-content {
+    display: flex; 
+    gap: 10px;
+    padding: 3px;
+    border-radius: 5px;
+}
+.custom-main .custom-text-container .def-text {
+    color: darkgrey;
+}
+.custom-subtext-container {
+    display: flex;
+    gap: 5px;
+}
+@media screen and (max-width: 400px) {
+    p {
+        font-size: 15px;
+    }
+}
+
+/* Row 1 */
+.row-one img {
+    height: 2.1rem;
+    width: 2.1rem;
+}
+
+/* Row 4 */
+.row-five .custom-subtext-container  {
+    flex-direction: column;
+    align-self: auto;
+}
+.row-five .custom-subtext-container .def-text {
+    align-self: auto;
+}

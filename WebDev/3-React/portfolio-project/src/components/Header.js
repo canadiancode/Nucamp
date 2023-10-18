@@ -27,7 +27,7 @@ const Header = () => {
         <Navbar className='bg-gradient bg-opacity-75' color="dark" expand="md">
             <NavbarBrand className='ms-start'>
                 <img style={headerImgStyle} src='https://avatars.githubusercontent.com/u/45132144?v=4' alt="Kevin Heidema" className="float-start header-image" />
-                <h3 style={headerTxtStyle} >CanadianCode</h3>
+                <h3 style={headerTxtStyle} >//CanadianCode</h3>
             </NavbarBrand>
             <Nav className="ml-auto flex-row" navbar>
                 <NavItem className="d-inline d-md-inline">

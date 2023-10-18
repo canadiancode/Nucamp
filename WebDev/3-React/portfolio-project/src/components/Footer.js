@@ -5,7 +5,7 @@ const footerStyle = {
     width: '100%',
     display: 'flex',
     justifyContent: 'space-between',
-    position: 'absolute',
+    position: 'sticky',
     bottom: '0px',
 }
 const footerLogoCon = {

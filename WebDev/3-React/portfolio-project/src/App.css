@@ -21,11 +21,24 @@ body {
 	}
 }
 
-/* Main Section */
+/* Heading */
+@media screen and (max-width: 400px) {
+	a svg {
+		height: 35px !important;
+		width: 35px !important;
+	}
+}
 
+/* Main Section */
 .cards-container {
 	display: flex;
 	padding: 1rem;
 	justify-content: center;
 	gap: 15px;
+	min-height: 80%;
+}
+@media screen and (max-width: 500px) {
+	.cards-container {
+		flex-direction: column;
+	}
 }
