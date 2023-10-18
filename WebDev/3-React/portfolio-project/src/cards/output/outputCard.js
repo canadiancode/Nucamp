@@ -16,7 +16,6 @@ const OutputCard = ({ previouslySelected }) => {
         const fetchData = async () => {
             try {
                 const data = await fetchCryptoDetails(selectedCrypto);
-                console.log(data);
                 setFetchedCryptoList(data);
                 setFetched(true);
             } catch (err) {
@@ -32,7 +31,6 @@ const OutputCard = ({ previouslySelected }) => {
         if (previouslySelected && previouslySelected.length > 0) {
             // Assuming the ID of the crypto is used for fetching details
             setSelectedCrypto(previouslySelected[0].id);
-            console.log(previouslySelected[0].id);
         }
     }, [previouslySelected]);
 
@@ -78,7 +76,7 @@ const OutputCard = ({ previouslySelected }) => {
                     <div className='row-three custom-text-container'>
                         <div className='custom-subtext-container'>
                             <p className='def-text'>Hash Algo:</p>
-                            <p>{fetchedCryptoList.hashing_algorithm}</p>
+                            <p>{fetchedCryptoList.hashing_algorithm ? fetchedCryptoList.hashing_algorithm : 'unknown'}</p>
                         </div>
                         <div className='custom-subtext-container'>
                             <p className='def-text'>First Block:</p>
@@ -88,7 +86,7 @@ const OutputCard = ({ previouslySelected }) => {
                     <div className='row-four custom-text-container'>
                         <div className='custom-subtext-container'>
                             <p className='def-text'>Max Supply:</p>
-                            <p>{fetchedCryptoList.market_data.max_supply > 0 ? (fetchedCryptoList.market_data.max_supply / 1000000) + 'M' : '∞'}</p>
+                            <p>{fetchedCryptoList.market_data.max_supply > 0 ? (fetchedCryptoList.market_data.max_supply / 1000000).toFixed(2) + 'M' : '∞'}</p>
                         </div>
                         <div className='custom-subtext-container'>
                             <p className='def-text'>Current Supply:</p>
@@ -102,7 +100,7 @@ const OutputCard = ({ previouslySelected }) => {
                             {/* ^: Matches the start of the string. */}
                             {/* (.*?): Matches any character (non-greedy) until the next part of the pattern. */}
                             {/* // (?<!\/.{0,3})\.: This is a negative lookbehind assertion. It matches a period (\.) only if there isn't a forward slash followed by 0 to 3 characters behind it. */}
-                            <p>{fetchedCryptoList.description.en.match(/^(.*?)(?<!\/.{0,3})\./)[0]}</p>
+                            <p>{fetchedCryptoList.description.en.replace(/<\/?a[^>]*>/g, '')}</p>
                         </div>
                     </div>
                 </div>

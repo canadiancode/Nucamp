@@ -10,7 +10,7 @@ const Main = () => {
     return (
         <div className='cards-container'>
             <CardContainer>
-                <InputCard setPreviouslySelected={setPreviouslySelected} />
+                <InputCard setPreviouslySelected={setPreviouslySelected} previouslySelected={previouslySelected} />
             </CardContainer>
             <CardContainer>
                 <OutputCard previouslySelected={previouslySelected} />

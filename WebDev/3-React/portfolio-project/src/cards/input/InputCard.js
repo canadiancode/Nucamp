@@ -56,6 +56,7 @@ const InputCard = ({ setPreviouslySelected, previouslySelected }) => {
         }
     };
     
+    
     const renderSelectedComponent = () => {
 
         let componentToRender;
