@@ -66,7 +66,7 @@ const OutputCard = ({ previouslySelected }) => {
                     <div className='row-two custom-text-container'>
                         <div className='custom-subtext-container'>
                             <p className='def-text'>Price:</p>
-                            <p>${fetchedCryptoList.market_data.current_price.usd} USD</p>
+                            <p>${(fetchedCryptoList.market_data.current_price.usd)} USD</p>
                         </div>
                         <div className='custom-subtext-container'>
                             <p className='def-text'>Market Cap:</p>
