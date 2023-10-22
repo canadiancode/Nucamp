@@ -1,10 +1,10 @@
 import Main from './screens/MainComponent';
-
-// This will stop the yellow screen on my phone:
-// console.disableYellowBox = true;
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
-  return (
-    <Main />
-  );
+    return (
+        <NavigationContainer>
+            <Main />
+        </NavigationContainer>
+    );
 };

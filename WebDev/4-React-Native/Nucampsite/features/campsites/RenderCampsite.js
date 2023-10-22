@@ -25,7 +25,6 @@ const RenderCampsite = ({ campsite }) => {
             </Card>
         )
     }
-
     // if campsite is empty, null, or undefined
     return (
         <View />
