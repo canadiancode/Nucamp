@@ -6,6 +6,7 @@ import { toggleFavorite } from '../features/favorites/favoritesSlice';
 import { Rating, Input } from 'react-native-elements';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { postComment } from '../features/comments/commentsSlice';
+import * as Animatable from 'react-native-animatable';
 
 const CampsiteInfoScreen = ({ route }) => {
     
@@ -55,7 +56,7 @@ const CampsiteInfoScreen = ({ route }) => {
     }
 
     return (
-        <>
+        <Animatable.View animation='fadeInUp' duration={2000} delay={1000}>
             <FlatList
                 data={comments.commentsArray.filter(
                     (comment) => comment.campsiteId === campsite.id
@@ -77,57 +78,57 @@ const CampsiteInfoScreen = ({ route }) => {
                     </>
                 }
             />
-        <Modal
-            animationType='slide'
-            transparent={false}
-            visible={showModal}
-            onRequestClose={() => setShowModal(!showModal)}
-        >
-            <View style={styles.modal}>
-                <Rating
-                    showRating
-                    startingValue={rating}
-                    imageSize={40}
-                    onFinishRating={(rating) => setRating(rating)}
-                    style={{ paddingVertical: 10 }}
-                />
-                <Input
-                    placeholder='Author'
-                    leftIcon={<FontAwesome name='user-o' />}
-                    leftIconContainerStyle={{ paddingRight: 10 }}
-                    onChangeText={(author) => setAuthor(author)}
-                    value={author}
-                />
-                <Input
-                    placeholder='Comment'
-                    leftIcon={<FontAwesome name='comment-o' />}
-                    leftIconContainerStyle={{ paddingRight: 10 }}
-                    onChangeText={(text) => setText(text)}
-                    value={text}
-                />
-                <View style={{ margin: 10 }}>
-                    <Button
-                        title='Submit'
-                        color='#5637DD'
-                        onPress={() => {
-                            handleSubmit();
-                            resetForm();
-                        }}
+            <Modal
+                animationType='slide'
+                transparent={false}
+                visible={showModal}
+                onRequestClose={() => setShowModal(!showModal)}
+            >
+                <View style={styles.modal}>
+                    <Rating
+                        showRating
+                        startingValue={rating}
+                        imageSize={40}
+                        onFinishRating={(rating) => setRating(rating)}
+                        style={{ paddingVertical: 10 }}
                     />
-                </View>
-                <View>
-                    <Button
-                        onPress={() => {
-                            setShowModal(!showModal);
-                            resetForm();
-                        }}
-                        title='Cancel'
-                        color='#808080'
+                    <Input
+                        placeholder='Author'
+                        leftIcon={<FontAwesome name='user-o' />}
+                        leftIconContainerStyle={{ paddingRight: 10 }}
+                        onChangeText={(author) => setAuthor(author)}
+                        value={author}
                     />
+                    <Input
+                        placeholder='Comment'
+                        leftIcon={<FontAwesome name='comment-o' />}
+                        leftIconContainerStyle={{ paddingRight: 10 }}
+                        onChangeText={(text) => setText(text)}
+                        value={text}
+                    />
+                    <View style={{ margin: 10 }}>
+                        <Button
+                            title='Submit'
+                            color='#5637DD'
+                            onPress={() => {
+                                handleSubmit();
+                                resetForm();
+                            }}
+                        />
+                    </View>
+                    <View>
+                        <Button
+                            onPress={() => {
+                                setShowModal(!showModal);
+                                resetForm();
+                            }}
+                            title='Cancel'
+                            color='#808080'
+                        />
+                    </View>
                 </View>
-            </View>
-        </Modal>
-        </>
+            </Modal>
+        </Animatable.View>
     )
 };
 
