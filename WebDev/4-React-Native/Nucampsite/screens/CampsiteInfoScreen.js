@@ -7,7 +7,6 @@ import { Rating, Input } from 'react-native-elements';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { postComment } from '../features/comments/commentsSlice';
 
-
 const CampsiteInfoScreen = ({ route }) => {
     
     const { campsite } = route.params;
