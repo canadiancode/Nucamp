@@ -4,7 +4,7 @@ import { Card, Avatar, ListItem } from 'react-native-elements';
 import { useSelector } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import Loading from '../components/LoadingComponent';
-import * as Animatable from 'react-native-animatable'; // Import Animatable
+import * as Animatable from 'react-native-animatable';
 
 const Mission = () => {
     return (
